@@ -701,7 +701,7 @@ Within the same page, configure the same thing for `Extended Email notification`
 
 To see the 2 new stages (k8s-deploy and k8s verify) added to the pipeline please check the [jenkinsfile in the git repo]. Trigger the pipeline to deploy the application
 
-## **Step 7: Assign a custom domain to the deployed application**
+## **Step 6: Assign a custom domain to the deployed application**
 
 ![s](https://miro.medium.com/v2/resize:fit:700/1*Qy26mTb5vi7YmUpaNblGlA.png)
 
