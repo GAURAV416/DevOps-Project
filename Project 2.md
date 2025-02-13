@@ -801,10 +801,3 @@ Go to Jenkins Dashboard again
 
 ***Note***: *Now you can test this pipeline as many times as you want by changing to the code and pushing them to GitHub*
 
-# Thank you
-
-Thank you for taking the time to work on this tutorial/labs. Let me know what you thought!
-
-#### Author by [Harshhaa Reddy](https://github.com/NotHarshhaa)
-
-### Ensure to follow me on GitHub. Please star/share this repository
