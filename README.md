@@ -66,7 +66,7 @@ Best way to connect to the 3 instances is to use [MobaXterm](https://mobaxterm.m
 
 ## **Step 2: Set up Jenkins, Sonarqube and Nexus**
 
-**3.1 Jenkins set up:** To configure Jenkins for use, we need to install some few things.
+**2.1 Jenkins set up:** To configure Jenkins for use, we need to install some few things.
 
 a.&gt; SSH into the Jenkins instance
 
@@ -197,7 +197,7 @@ Check `docker` version by running the command `docker --version`
 
 ***NOTE: This docker script will be used on all other VMs or Instances in this project. You can copy, paste and run the script to have docker installed on all the instances***
 
-**3.2. Nexus set up**
+**2.2. Nexus set up**
 
 For Nexus: SSH into the VM &gt; Run the command `sudo apt update` &gt; Next, copy and paste the `docker` script used earlier and install the script.
 
@@ -233,7 +233,7 @@ To login, use `admin` as username and the generated password. &gt; Click on `Acc
 
 ![s](https://miro.medium.com/v2/resize:fit:700/1*LhoEyK0F3djMkda6Q5KDrg.png)
 
-**3.3. Sonarqube setup**
+**2.3. Sonarqube setup**
 
 SSH into the sonarqube VM and update it &gt; Install docker with the same script used earlier &gt; check if docker is installed `docker --version` &gt; Next, create a sonarqube container by running the command `sudo docker run -d -p 9000:9000 sonarqube:lts-community` &gt; check the container is running `sudo docker ps`
 
@@ -452,7 +452,7 @@ Run the build, and click on stages to see the pipeline stages
 
 ![s](https://miro.medium.com/v2/resize:fit:700/1*L_BVlWCtjuhkUMEtCtOeLA.png)
 
-## **Step 6: Create the EKS cluster, Install AWS CLI, Kubectl and Terraform**
+## **Step 5: Create the EKS cluster, Install AWS CLI, Kubectl and Terraform**
 
 We will need to create a VM, install and use`terraform` to deploy the EKS service into the machine and install and use`kubectl` to interact with this EKS cluster.
 
@@ -699,7 +699,7 @@ Within the same page, configure the same thing for `Extended Email notification`
 
 ![s](https://miro.medium.com/v2/resize:fit:700/1*2mcXsv2Ev_BMzOFbXEovPg.png)
 
-To see the 2 new stages (k8s-deploy and k8s verify) added to the pipeline please check the [jenkinsfile in the git repo](https://github.com/ougabriel/full-stack-blogging-app/tree/main). Trigger the pipeline to deploy the application
+To see the 2 new stages (k8s-deploy and k8s verify) added to the pipeline please check the [jenkinsfile in the git repo]. Trigger the pipeline to deploy the application
 
 ## **Step 7: Assign a custom domain to the deployed application**
 
