@@ -883,4 +883,3 @@ By setting up these components, you’ll be able to monitor your application’s
 
 
 
-> **Join Our** [Telegram Community](https://t.me/prodevopsguy) // [Follow me](https://github.com/NotHarshhaa) **for more DevOps & Cloud content.**
