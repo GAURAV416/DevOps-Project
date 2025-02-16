@@ -25,44 +25,17 @@
 
 **Table of Contents:**
 
-- **Step 1:** Set up Git Repository and create Security Token  
-- **Step 2:** Setup required servers (Jenkins, Sonarqube, Nexus, Monitoring tools)  
-- **Step 3:** Set up Jenkins, Sonarqube and Nexus  
-- **Step 4:** Install Jenkins Plugins, and Configure Nexus, Trivy, SonarQube and DockerHub to use Jenkins  
-- **Step 5:** Create a complete CICD pipeline  
-- **Step 6:** Create the EKS cluster, Install AWS CLI, Kubectl and Terraform  
-- **Step 7:** Assign a custom domain to the deployed application  
-- **Step 8:** Monitor the application
+- **Step 1:** Setup required servers (Jenkins, Sonarqube, Nexus, Monitoring tools)  
+- **Step 2:** Set up Jenkins, Sonarqube and Nexus  
+- **Step 3:** Install Jenkins Plugins, and Configure Nexus, Trivy, SonarQube and DockerHub to use Jenkins  
+- **Step 4:** Create a complete CICD pipeline  
+- **Step 5:** Create the EKS cluster, Install AWS CLI, Kubectl and Terraform  
+- **Step 6:** Assign a custom domain to the deployed application  
+- **Step 7:** Monitor the application
 
-## **Step 1. Set up Git Repository and create Security Token**
 
-a.&gt; **Create the Repo:** We will need to setup a private git repo, it is assumed you already know how to do one. If not [click here](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository) to read the official GitHub docs. You can decide to make it *public or private* for production use, it is best to set it to `private` this way it is more secured and not exposed to the public.
 
-However; by choice I will be leaving my repo `public` , this way you can get access to it and the source files used for this project. [Repo Link](https://github.com/ougabriel/full-stack-blogging-app.git)
-
-b.&gt; **Create a Security Token:** After setting up the git repo, we will have to create a `security token` ; this will help us authenticate easily. Another major importance is that it ensures secured, managed access to your repositories without exposing your actual password.
-
-c.&gt; **Install GitBash in your local system and clone the repo:**
-
-Again, it is assumed you already know how to install Git Bash, it is quite easy to do this for Windows and Mac. Download the OS and follow the installation prompts. [Click Here](https://github.com/git-guides/install-git) to get started and install Git. Having Git on your local system is a advisable because it makes it easier to push and commits code.
-
-After installing Git Bash, we need to clone the [repo](https://github.com/ougabriel/full-stack-blogging-app.git) we will be using, this [repo](https://github.com/ougabriel/full-stack-blogging-app.git) contains the source code needed for this project. [Click Here to CLONE it.](https://github.com/ougabriel/full-stack-blogging-app.git)
-
-```go
-git clone https://github.com/ougabriel/full-stack-blogging-app.git
-```
-
-I am running the `git clone` command in VS Studio
-
-![s](https://miro.medium.com/v2/resize:fit:700/1*fddWNJ-zAHGtCA1RItSOAg.png)
-
-When this is done make sure to `cd` into the project directory
-
-```go
-cd FullStack-Blogging-App/
-```
-
-## **Step 2: Setup required servers (Jenkins, Sonarqube, Nexus, Monitoring tools)**
+## **Step 1: Setup required servers (Jenkins, Sonarqube, Nexus, Monitoring tools)**
 
 Here, we are going to deploy 2 EC2 instance for Nexus and Sonarqube
 
@@ -91,9 +64,9 @@ Now, repeate the same process and create an EC2 instance of size 25GB and Instan
 
 Best way to connect to the 3 instances is to use [MobaXterm](https://mobaxterm.mobatek.net/documentation.html#1_2), a third party app that can be used to `ssh` into any system. [Find the guide here](https://mobaxterm.mobatek.net/documentation.html#1_2).
 
-## **Step 3: Set up Jenkins, Sonarqube and Nexus**
+## **Step 2: Set up Jenkins, Sonarqube and Nexus**
 
-**3.1 Jenkins set up:** To configure Jenkins for use, we need to install some few things.
+**2.1 Jenkins set up:** To configure Jenkins for use, we need to install some few things.
 
 a.&gt; SSH into the Jenkins instance
 
@@ -224,7 +197,7 @@ Check `docker` version by running the command `docker --version`
 
 ***NOTE: This docker script will be used on all other VMs or Instances in this project. You can copy, paste and run the script to have docker installed on all the instances***
 
-**3.2. Nexus set up**
+**2.2. Nexus set up**
 
 For Nexus: SSH into the VM &gt; Run the command `sudo apt update` &gt; Next, copy and paste the `docker` script used earlier and install the script.
 
@@ -260,7 +233,7 @@ To login, use `admin` as username and the generated password. &gt; Click on `Acc
 
 ![s](https://miro.medium.com/v2/resize:fit:700/1*LhoEyK0F3djMkda6Q5KDrg.png)
 
-**3.3. Sonarqube setup**
+**2.3. Sonarqube setup**
 
 SSH into the sonarqube VM and update it &gt; Install docker with the same script used earlier &gt; check if docker is installed `docker --version` &gt; Next, create a sonarqube container by running the command `sudo docker run -d -p 9000:9000 sonarqube:lts-community` &gt; check the container is running `sudo docker ps`
 
@@ -270,7 +243,7 @@ Access `sonarqube` on `http://<sonarqube-ip:9000` &gt; login using `admin` as us
 
 ![s](https://miro.medium.com/v2/resize:fit:700/1*HW5QLy_RfL6R__W1BPfLeQ.png)
 
-## **Step 4: Install Jenkins Plugins, and Configure Nexus, Trivy, SonarQube and DockerHub to use Jenkins**
+## **Step 3: Install Jenkins Plugins, and Configure Nexus, Trivy, SonarQube and DockerHub to use Jenkins**
 
 **a.&gt; Install Jenkins Plugin**
 
@@ -397,7 +370,7 @@ We will need to add the credentials to system settings, go to managed jenkins &g
 
 ![s](https://miro.medium.com/v2/resize:fit:700/1*xPj0l8lF2woNP8XAKZEXrw.png)
 
-## **Step 5: Create a complete CICD pipeline**
+## **Step 4: Create a complete CICD pipeline**
 
 This pipeline should be changed to fit your `docker image` and `dockerhub` details. This is not the end of the pipeline, because we still going to integrate Email Push Notification within the pipeline that tells us when the pipeline fails or succeeds.
 
@@ -479,7 +452,7 @@ Run the build, and click on stages to see the pipeline stages
 
 ![s](https://miro.medium.com/v2/resize:fit:700/1*L_BVlWCtjuhkUMEtCtOeLA.png)
 
-## **Step 6: Create the EKS cluster, Install AWS CLI, Kubectl and Terraform**
+## **Step 5: Create the EKS cluster, Install AWS CLI, Kubectl and Terraform**
 
 We will need to create a VM, install and use`terraform` to deploy the EKS service into the machine and install and use`kubectl` to interact with this EKS cluster.
 
@@ -726,9 +699,9 @@ Within the same page, configure the same thing for `Extended Email notification`
 
 ![s](https://miro.medium.com/v2/resize:fit:700/1*2mcXsv2Ev_BMzOFbXEovPg.png)
 
-To see the 2 new stages (k8s-deploy and k8s verify) added to the pipeline please check the [jenkinsfile in the git repo](https://github.com/ougabriel/full-stack-blogging-app/tree/main). Trigger the pipeline to deploy the application
+To see the 2 new stages (k8s-deploy and k8s verify) added to the pipeline please check the [jenkinsfile in the git repo]. Trigger the pipeline to deploy the application
 
-## **Step 7: Assign a custom domain to the deployed application**
+## **Step 6: Assign a custom domain to the deployed application**
 
 ![s](https://miro.medium.com/v2/resize:fit:700/1*Qy26mTb5vi7YmUpaNblGlA.png)
 
@@ -738,7 +711,7 @@ Add the URL link into an existing Domain from any domain name provider for examp
 
 ***Note: this is optional. I dont need this app to have any special domain url but you can try it for practice***
 
-## **Step 8: Monitor the application**
+## **Step 7: Monitor the application**
 
 Create another EC2 instance of `t2large` and `25GB` &gt; install grafana, prometheus and blackbox on the instance using the following command.
 
@@ -879,11 +852,7 @@ http://<monitoring-vm-ip>:9115
 
 By setting up these components, you’ll be able to monitor your application’s health and performance effectively.
 
-### **The End**
 
-## **Author by:**
 
-![s](https://imgur.com/2j6Aoyl.png)
 
-> [!NOTE]
-> **Join Our** [Telegram Community](https://t.me/prodevopsguy) // [Follow me](https://github.com/NotHarshhaa) **for more DevOps & Cloud content.**
+
