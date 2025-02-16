@@ -535,9 +535,3 @@ Observe that the title changed as expected.
 
 **If you are planning to use this repository for learning, please give it a star. Thanks!**
 
-### Author by
-
-![](https://imgur.com/2j6Aoyl.png)
-
-> [!Note]
-> Join Our [Telegram Community](https:t.me/prodevopsguy) || [Follow me](https://github.com/NotHarshhaa) for more DevOps Content
