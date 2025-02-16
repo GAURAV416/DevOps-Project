@@ -8,8 +8,6 @@ Earlier security was tested at the last of the lifecycle but with the advancemen
 
 In this Project, we will be creating a **DevSecOps Pipeline to Deploy a 3-Tier Java-based application using different DevSecOps Tools and Principles**. So ***let’s get started***.
 
-## **Source Code:** : [HERE](https://github.com/NotHarshhaa/DevOps-Projects/tree/master/DevOps-Project-33/DevSecOps-CI-CD-Pipeline)
-
 ### **Prerequisite:**
 
 During this hands-on experience, we'll be using non-free computing services, which may incur costs. For more information, please consult the AWS pricing [page](https://aws.amazon.com/ec2/pricing/on-demand/).
