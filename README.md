@@ -774,9 +774,3 @@ As we have used a lot of non-free compute services it's better to clean up the s
 
 That was the complete DevSecOps CI/CD pipeline from Scratch. If you want to integrate this Pipeline with IAC tools for Infrastructure and Configuration management.
 
-## **Author by:**
-
-![s](https://imgur.com/2j6Aoyl.png)
-
-> [!NOTE]
-> **Join Our** [Telegram Community](https://t.me/prodevopsguy) // [Follow me](https://github.com/NotHarshhaa) **for more DevOps & Cloud content.**
